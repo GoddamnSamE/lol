@@ -1,11 +1,13 @@
+from abc import ABC , abstractclassmethod
 class car:
-    def __init__(self,Cost:int,Model,Color,NumberOfDoors:int,CompanyName,ZeroToHundredSpeed:int):
+    def __init__(self,Cost:int,Model,Color,NumberOfDoors:int,CompanyName,ZeroToHundredSpeed:int,EngineType):
         self.Cost = Cost
         self.Model = Model
         self.Color = Color
         self.NumberOfDoors = NumberOfDoors
         self.CompanyName = CompanyName
         self.ZeroToHundredSpeed = ZeroToHundredSpeed
+        self.EngineType
     def Move(self,Name):
         pass
     def Braking(self,Name):
@@ -82,5 +84,5 @@ class ElectricEngine(Engine):
             print("wow I guess you have a very modern and expensive car")
         else:
             print("Your car is modern,but hoenstly i don't think it's not expensive")
-class Hybrid(car):
-    
+class HybridEngine(PetrolEngine,ElectricEngine):
+    def __init__(self, NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio, CoolingSystem)    
