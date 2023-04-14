@@ -96,4 +96,5 @@ class HybridEngine(PetrolEngine,ElectricEngine):
     def EngineIntrestingsFacts(self):
         print("This engine is made to decrease the greenhouse gases effect on global warming /n Today some bikes are using something like these engines")
 ##############################################################################################6
+def
         
