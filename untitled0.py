@@ -1,4 +1,4 @@
-from abc import ABC , abstractclassmethod
+from abc import ABC , abstractmethod
 class car:
     def __init__(self,Cost:int,Model,Color,NumberOfDoors:int,CompanyName,ZeroToHundredSpeed:int,EngineType):
         self.Cost = Cost
@@ -8,8 +8,9 @@ class car:
         self.CompanyName = CompanyName
         self.ZeroToHundredSpeed = ZeroToHundredSpeed
         self.EngineType
+    @abstractmethod
     def Move(self,Name):
-        pass
+        raise ValueError("You don't define this method for your car")
     def Braking(self,Name):
         print(f"{self.Name} is stopping")
     def Honking(self,Name):
@@ -21,6 +22,7 @@ class car:
             print(f"4 people can seat on {self.Name} ")
     def ServiceSystem(self,Name,CompanyName):
         print(f"{self.Name} is produced by {self.CompanyName}. if your car have any problem, call the {self.CompanyName} company")
+#############################################################################################################1
 class Engine:
     def __init__(self,NumberOfCylinder : int ,CylinderType,PistonMaterial,CylinderVolume : int ,PowerToWeightRatio : int):
         self.NumberOfCylinder = NumberOfCylinder
@@ -51,6 +53,7 @@ class Engine:
         print(f"{self.Power}/n{self.EngineVolume}/n{self.Use}")
     def EngineIntrestingsFacts(self):
         pass
+########################################################################################################2
 class PetrolEngine(Engine):
     def __init__(self, NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio,CoolingSystem):
         super().__init__(NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio)
@@ -63,6 +66,7 @@ class PetrolEngine(Engine):
     def EngineIntrestingsFacts(self):
         print("This engine cosume petrol!!!")
         print("Your engine is first kind which used to make cars. /n this kind of engine has a real effect in increasing global warming")
+#########################################################################################################3
 class DieselEngine(Engine):
     def __init__(self, NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio,NumberOfStrake : int):
         super().__init__(NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio)
@@ -75,6 +79,7 @@ class DieselEngine(Engine):
     def EngineIntrestingsFacts(self):
         print("Your engine type can cnsume many things")
         print("This Engine is the most used engine in the world. /n most tanks in World War II use this kind of engine")
+######################################################################################4
 class ElectricEngine(Engine):
     def __init__(self, NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio,AmountOfConsumedKWatt : int):
         super().__init__(NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio)
@@ -84,5 +89,11 @@ class ElectricEngine(Engine):
             print("wow I guess you have a very modern and expensive car")
         else:
             print("Your car is modern,but hoenstly i don't think it's not expensive")
+#################################################################################################5
 class HybridEngine(PetrolEngine,ElectricEngine):
-    def __init__(self, NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio, CoolingSystem)    
+    def __init__(self, NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio, CoolingSystem,AmountOfConsumedKWatt):
+        super(PetrolEngine, ElectricEngine).__init__(NumberOfCylinder, CylinderType, PistonMaterial, CylinderVolume, PowerToWeightRatio, CoolingSystem,AmountOfConsumedKWatt)
+    def EngineIntrestingsFacts(self):
+        print("This engine is made to decrease the greenhouse gases effect on global warming /n Today some bikes are using something like these engines")
+##############################################################################################6
+        
