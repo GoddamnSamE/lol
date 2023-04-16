@@ -167,17 +167,73 @@ class Peugeot(Car):
 ###################################################10
 class sls(Car):
     def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem):
-        super().__init__(Cost,Model,Color,ZeroToHundredSpeed,HeaterSystem)
+        super().__init__(Cost,Model,Color,HeaterSystem)
         self.NumberOfDoors = 2
         self.ComopanyName = "Benz"
+        self.ZeroToHundredSpeed = 3.6
         self.EngineType = PetrolEngine(8, "M159 V8", "Aluminium", 1300, 4, "WaterCooled")
+    def Move(self,Model):
+        print(f"sls({self.Model}) is moving")
+    def Braking(self, Model):
+        print(f"sls ({self.model}) is stopping")
+    def Honking(self, Model):
+        print(f"sls ({self.Model}) is honking . please move")
 #################################################11
+class TeslaModelS(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem) :
+        super().__init__(Cost,Color,HeaterSystem)
+        self.Model = "S"
+        self.NumberOfDoors = 4
+        self.CompanyName = "Tesla"
+        self.ZeroToHundredSpeed = 6.5
+        self.EngineType = HybridEngine(8,"3-phase", "Aluminium", 800, 6.5, "WaterCooled", 20)
+    def Move(self,Model):
+        print("TeslaModelS is moving")
+    def Braking(self, Model):
+        print("TeslaModelS is stopping")
+    def Honking(self, Model):
+        print("TeslaModelS is honking . please move")
+#########################################################12
+class Mustang(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem) :
+        super().__init__(Cost,Color, Model, ZeroToHundredSpeed,EngineType ,HeaterSystem)
+        self.NumberOfDoors = 2
+        self.CompanyName = "Ford"
+    def Move(self,Model):
+        print(f"Mustang({self.Model}) is moving")
+    def Braking(self, Model):
+        print(f"Mustang ({self.model}) is stopping")
+    def Honking(self, Model):
+        print(f"Mustang ({self.Model}) is honking . please move")
+#######################################################################13
+class McLaren(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem) :
+        super().__init__(Cost,Color,HeaterSystem)
+        self.Model = "720S"
+        self.NumberOfDoors = 2
+        self.CompanyName = "McLaren"
+        self.ZeroToHundredSpeed = 2.9
+        self.EngineType = PetrolEngine(8, "M838T", "Aluminium", 1500, 4.3, "WaterCooled")
+    def Move(self,Model):
+        print(f"McLaren({self.Model}) is moving")
+    def Braking(self, Model):
+        print(f"McLaren ({self.model}) is stopping")
+    def Honking(self, Model):
+        print(f"McLaren ({self.Model}) is honking . please move")
+################################################################14
+class X(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem):
+        super().__init__(Cost,Model,Color,ZeroToHundredSpeed,EngineType,HeaterSystem)
+        self.NumberOfDoors = 4
+        self.CompanyName = "BMW"
+    def Move(self,Model):
+        print(f"X({self.Model}) is moving")
+    def Braking(self, Model):
+        print(f"X ({self.model}) is stopping")
+    def Honking(self, Model):
+        print(f"X ({self.Model}) is honking . please move")
+#########################################################!5
         
-        
-
-
-        
-            
 
                         
         
