@@ -1,6 +1,6 @@
 from abc import ABC , abstractmethod
-class car:
-    def __init__(self,Cost:int,Model,Color,NumberOfDoors:int,CompanyName,ZeroToHundredSpeed:int,EngineType):
+class Car:
+    def __init__(self,Cost:int,Model,Color,NumberOfDoors:int,CompanyName,ZeroToHundredSpeed:int,EngineType,HeaterSystem):
         self.Cost = Cost
         self.Model = Model
         self.Color = Color
@@ -8,20 +8,23 @@ class car:
         self.CompanyName = CompanyName
         self.ZeroToHundredSpeed = ZeroToHundredSpeed
         self.EngineType
+        self.HeaterSystem
     @abstractmethod
-    def Move(self,Name):
+    def Move(self,Model):
         raise ValueError("You don't define this method for your car")
-    def Braking(self,Name):
-        print(f"{self.Name} is stopping")
-    def Honking(self,Name):
-        print(f"{self.Name} is honking. please change your place")
-    def NumberOfSeats(self,NumberOfDoors,Name):
+    @abstractmethod
+    def Braking(self,Model):
+        raise ValueError("You don't define this method for your car")
+    @abstractmethod
+    def Honking(self,Model):
+        raise ValueError("You don't define this method for your car")
+    def NumberOfSeats(self,NumberOfDoors,Model):
         if int(self.NumberOfDoors) == 2:
-            print(f"2 people can seat on {self.Name} ")
+            print(f"2 people can seat on {self.Model} ")
         else:
-            print(f"4 people can seat on {self.Name} ")
-    def ServiceSystem(self,Name,CompanyName):
-        print(f"{self.Name} is produced by {self.CompanyName}. if your car have any problem, call the {self.CompanyName} company")
+            print(f"4 people can seat on {self.Model} ")
+    def ServiceSystem(self,Model,CompanyName):
+        print(f"{self.Model} is produced by {self.CompanyName}. if your car have any problem, call the {self.CompanyName} company")
 #############################################################################################################1
 class Engine:
     def __init__(self,NumberOfCylinder : int ,CylinderType,PistonMaterial,CylinderVolume : int ,PowerToWeightRatio : int):
@@ -96,5 +99,107 @@ class HybridEngine(PetrolEngine,ElectricEngine):
     def EngineIntrestingsFacts(self):
         print("This engine is made to decrease the greenhouse gases effect on global warming /n Today some bikes are using something like these engines")
 ##############################################################################################6
-def
+class HeaterSystem:
+    def __init__(self,HeaterOrCooler,OnOrOff,Degree : int,Time :int ,AutoMode):
+        self.HeaterOrCooler = HeaterOrCooler
+        self.OnOrOff = OnOrOff
+        self.Degree = Degree
+        self.Time = Time
+        self.AutoMode = AutoMode
+    def TurnOn(self,OnOrOff):
+        if self.OnOrOff == "on" :
+            print("Turn On the HeaterSystem")
+        else:
+            pass
+    def TurnOff(self,OnOrOff):
+         if self.OnOrOff == "off" :
+            print("Turn Off the HeaterSystem")
+    def HeaterOrCooler(self,HeaterOrCooler):
+        if self.HeaterOrCooler == "Heater":
+            print("Your car will be warmer soon")
+        else:
+            print("Your car will be cooler soon")
+    def Degree(self,Degree):
+        if self.Degree == 1:
+            print("your heater system is  on first(lowwest) degree")
+        elif self.Degree == 2:
+            print("your heater system is  on second(moddest) degree")
+        else:
+            print("your heater system is  on highest degree")
+    def AutoOff(self,Time):
+        print(f"your heaterSystem will off in {self.Time} minuts ")
+#######################################################7
+class Pride(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem) :
+        super().__init__(Cost,Model,Color,ZeroToHundredSpeed,HeaterSystem)        
+        self.NumberOfDoors = 4
+        self.CompanyName = "Saipa"
+        self.EngineType = PetrolEngine(4, "m13", "Aluminium", 400, 8, "AirCooled")
+    def Move(self,Model):
+        print(f"pride({self.Model}) is moving")
+    def Braking(self, Model):
+        print(f"pride ({self.model}) is stopping")
+    def Honking(self, Model):
+        print(f"pride ({self.Model}) is honking . please move")
+##############################################8
+class Persia(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem):
+        super().__init__(Cost,Model,Color,ZeroToHundredSpeed,HeaterSystem)
+        self.NumberOfDoors = 4
+        self.CompanyName = "IranKhodro"
+        self.EngineType = PetrolEngine(4, "ELX", "Aluminium", 400, 7.6, "AirCooled")
+    def Move(self,Model):
+        print(f"Persia({self.Model}) is moving")
+    def Braking(self, Model):
+        print(f"Persia ({self.model}) is stopping")
+    def Honking(self, Model):
+        print(f"Persia ({self.Model}) is honking . please move")      
+#######################################################9
+class Peugeot(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem):
+        super().__init__(Cost,Model,Color,CompanyName,ZeroToHundredSpeed,EngineType,HeaterSystem)
+    def Move(self,Model):
+        print(f"Peugeot({self.Model}) is moving")
+    def Braking(self, Model):
+        print(f"Peugeot ({self.model}) is stopping")
+    def Honking(self, Model):
+        print(f"Peugeot ({self.Model}) is honking . please move")
+###################################################10
+class sls(Car):
+    def __init__(self, Cost, Model, Color, NumberOfDoors, CompanyName, ZeroToHundredSpeed, EngineType, HeaterSystem):
+        super().__init__(Cost,Model,Color,ZeroToHundredSpeed,HeaterSystem)
+        self.NumberOfDoors = 2
+        self.ComopanyName = "Benz"
+        self.EngineType = PetrolEngine(8, "M159 V8", "Aluminium", 1300, 4, "WaterCooled")
+#################################################11
+        
+        
+
+
+        
+            
+
+                        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
